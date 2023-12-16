@@ -8,13 +8,19 @@ const OUTPUT_DATA = outputPage.getDataRange().getValues();
 
 
 function getColumnNumber(dataSet, headerString){
-    // Finds the column number of a given header
-    // Column A is 1 but index is 0, so add 1
-      return dataSet[0].indexOf(headerString)+1
-    };
+  // Finds the column number of a given header
+  // Column A is 1 but index is 0, so add 1
+    return dataSet[0].indexOf(headerString)+1
+  };
     
 function getCellData(dataSet, entryRow, headerString){
   // Finds the data associated with the given header for given entry (row)
   const cellIndex = dataSet[0].indexOf(headerString);
   return entryRow[cellIndex]
+};
+
+
+function getInputData(row, headerString){
+  // Shorter call for getCellData when using INPUT_DATA
+  return getCellData(INPUT_DATA, row, HEADERS[headerString])
 };

@@ -6,15 +6,12 @@ const INPUT_PAGE = "bountifulInput"
 
 const HEADERS = {
     profession: "profession",
-    objrew: "obj/rew",
+    requirement: "requirement",
     type: "type",
-    rarirty: "rarity",
+    rarity: "rarity",
     content: "content",
     min: "min",
     max: "max",
     unitWorth: "unitWorth",
     nbt: "nbt",
-    profession: "Profession",
-    objJson: "OBJ",
-    rewJson: "REW"
 }

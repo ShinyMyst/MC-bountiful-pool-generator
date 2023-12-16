@@ -1,17 +1,44 @@
 function main(){
+    var professionDict = makeProfDict()
+  
+  
+  for (const row of INPUT_DATA.slice(1)) {
+    const job = getCellData(INPUT_DATA, row, HEADERS["profession"]);
+    const req = getCellData(INPUT_DATA, row, HEADERS["requirement"]);
+    if (!professionDict[job]) {
+      professionDict[job] = {};
+    }
+    if (!professionDict[job][req]) {
+      professionDict[job][req] = [];
+    }
+    console.log(professionDict)
+    const content = {
+      "type": getCellData(INPUT_DATA, row, HEADERS["type"]),
+      "rarity": getCellData(INPUT_DATA, row, HEADERS["rarity"]),
+      "content": getCellData(INPUT_DATA, row, HEADERS["content"]),
+      "amount": {
+        "min": getCellData(INPUT_DATA, row, HEADERS["min"]),
+        "max": getCellData(INPUT_DATA, row, HEADERS["max"])
+      },
+      "unitWorth": getCellData(INPUT_DATA, row, HEADERS["unitWorth"]),
+      "nbt": getCellData(INPUT_DATA, row, HEADERS["nbt"])
+    };
+    console.log(content)
+    professionDict[job][req].push(content);
+  }
+  console.log(professionDict["armorer"]["rew"])
+  }
+  
+  function makeProfDict(){
     professionDict = {}
     professionCol = getColumnNumber(OUTPUT_DATA, HEADERS["profession"])
     professionList = OUTPUT_DATA[professionCol]
-    console.log(professionList)
     for (const profession of professionList){
-      console.log(profession)
       professionDict[profession] = {}
     }
-    console.log(professionDict)
+    return professionDict
+  };
   
-      for (const row of DATA) {
-  }
-  }
   
   // Make a dict of all professions
   // Add an entry for obj/rew within the dict
