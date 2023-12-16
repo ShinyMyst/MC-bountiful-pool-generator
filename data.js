@@ -18,9 +18,3 @@ function getCellData(dataSet, entryRow, headerString){
   const cellIndex = dataSet[0].indexOf(headerString);
   return entryRow[cellIndex]
 };
-
-
-function getInputData(row, headerString){
-  // Shorter call for getCellData when using INPUT_DATA
-  return getCellData(INPUT_DATA, row, HEADERS[headerString])
-};
