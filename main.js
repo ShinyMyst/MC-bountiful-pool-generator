@@ -1,12 +1,27 @@
 function main(){
     var professionDict = populateDict()
     for (const key in professionDict){
-      console.log(key)
+      colNum = getColumnNumber(OUTPUT_DATA)
+      // Add Obj
+      var objective = professionDict[key]["obj"]
+      var cell = OUTPUT_PAGE.getRange(2, colNum+1)
+      if (objective && objective !== cell.getValue()){
+        console.log("OBJ")
+        console.log(objective)
+        console.log(colNum+1)
+        OUTPUT_PAGE.getRange(2, colNum+1).setValue(objective)
+      }
+      // Add Rew
+      var reward = professionDict[key]["rew"]
+      var cell = OUTPUT_PAGE.getRange(3, colNum+1)
+      if (reward && reward !== cell.getValue()){
+        console.log("OBJ")
+        console.log(objective)
+        console.log(colNum+1)
+        OUTPUT_PAGE.getRange(3, colNum+1).setValue(objective)
+      };
     }
-    
-    console.log(professionDict)
-    console.log(professionDict["armorer"]["rew"])
-    OUTPUT_PAGE.getRange(2, 3).setValue(professionDict["armorer"]["rew"])
+  
   }
   
   
@@ -49,10 +64,10 @@ function main(){
     if (getCellData(INPUT_DATA, row, HEADERS["nbt"])) {
       content["nbt"] = getCellData(INPUT_DATA, row, HEADERS["nbt"]);
     }
-  
     return content
   }
   
-  
+  // Only one content added per item instead of appending list
+  // Highlight row when new entry is added
   
   
