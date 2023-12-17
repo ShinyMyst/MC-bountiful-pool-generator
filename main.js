@@ -6,22 +6,19 @@ function main(){
       var objective = professionDict[key]["obj"]
       var cell = OUTPUT_PAGE.getRange(2, colNum+1)
       if (objective && objective !== cell.getValue()){
-        console.log("OBJ")
-        console.log(objective)
-        console.log(colNum+1)
-        OUTPUT_PAGE.getRange(2, colNum+1).setValue(objective)
+        OUTPUT_PAGE.getRange(2, colNum+1).setValue(JSON.stringify(objective))
       }
       // Add Rew
-      var reward = professionDict[key]["rew"]
+      var reward = professionDict[key]["rew"]  
+      var reward = {
+        replace: true,
+        content: reward
+      }
       var cell = OUTPUT_PAGE.getRange(3, colNum+1)
-      if (reward && reward !== cell.getValue()){
-        console.log("OBJ")
-        console.log(objective)
-        console.log(colNum+1)
-        OUTPUT_PAGE.getRange(3, colNum+1).setValue(objective)
+      if (reward && reward !== cell.getValue()){ 
+        OUTPUT_PAGE.getRange(3, colNum+1).setValue(JSON.stringify(reward))
       };
     }
-  
   }
   
   
@@ -67,6 +64,5 @@ function main(){
     return content
   }
   
-  // Only one content added per item instead of appending list
   // Highlight row when new entry is added
-  
+
