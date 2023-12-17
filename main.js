@@ -1,6 +1,17 @@
 function main(){
-    var professionDict = {}
+    var professionDict = populateDict()
+    for (const key in professionDict){
+      console.log(key)
+    }
+    
+    console.log(professionDict)
+    console.log(professionDict["armorer"]["rew"])
+    OUTPUT_PAGE.getRange(2, 3).setValue(professionDict["armorer"]["rew"])
+  }
   
+  
+  function populateDict(){
+    var professionDict = {}
     for (const row of INPUT_DATA.slice(1)) {
       // Format Profession Dict
       const job = getCellData(INPUT_DATA, row, HEADERS["profession"]);
@@ -15,7 +26,8 @@ function main(){
       const content = getFormattedContent(row)
       professionDict[job][req].push(content);
     }
-  }
+    return professionDict
+  };
   
   
   function getFormattedContent(row){
@@ -40,4 +52,7 @@ function main(){
   
     return content
   }
+  
+  
+  
   
