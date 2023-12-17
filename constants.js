@@ -1,7 +1,7 @@
 // Sheet Information
 const SHEET_ID = "1PANyVTqJitHhYDnM_NiY5dj8bMVLEIdtYqrFuP8AW-0"
-const OUTPUT_PAGE = "bountifulOutput"
-const INPUT_PAGE = "bountifulInput"
+const OUTPUT_TITLE = "bountifulOutput"
+const INPUT_TITLE = "bountifulInput"
 
 
 const HEADERS = {
@@ -15,3 +15,5 @@ const HEADERS = {
     unitWorth: "unitWorth",
     nbt: "nbt",
 }
+
+COLOR = '#F0F8FF'
