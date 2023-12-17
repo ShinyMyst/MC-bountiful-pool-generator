@@ -70,4 +70,3 @@ function main(){
   // Only one content added per item instead of appending list
   // Highlight row when new entry is added
   
-  
