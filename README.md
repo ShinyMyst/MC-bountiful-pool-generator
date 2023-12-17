@@ -1,0 +1,1 @@
+Converts table on excel into various json objects that can be used with the Bountiful mod.

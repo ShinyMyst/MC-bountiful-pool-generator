@@ -67,7 +67,7 @@ function writeContent(professionDict, key, type, rowNum, colNum){
     // Add data to sheet
     var cell = OUTPUT_PAGE.getRange(rowNum, colNum+1)
     if (data && data !== cell.getValue()){ 
-      OUTPUT_PAGE.getRange(rowNum, colNum+1).setValue(JSON.stringify(data))
+      OUTPUT_PAGE.getRange(rowNum, colNum+1).setValue(data)
       cell.setBackground(COLOR);
     };
 }
