@@ -7,6 +7,7 @@ function main(){
       var cell = OUTPUT_PAGE.getRange(2, colNum+1)
       if (objective && objective !== cell.getValue()){
         OUTPUT_PAGE.getRange(2, colNum+1).setValue(JSON.stringify(objective))
+        cell.setBackground('#F0F8FF');
       }
       // Add Rew
       var reward = professionDict[key]["rew"]  
@@ -14,9 +15,13 @@ function main(){
         replace: true,
         content: reward
       }
+      reward = JSON.stringify(reward)
       var cell = OUTPUT_PAGE.getRange(3, colNum+1)
+      //console.log(reward)
+      //console.log(cell.getValue())
       if (reward && reward !== cell.getValue()){ 
         OUTPUT_PAGE.getRange(3, colNum+1).setValue(JSON.stringify(reward))
+        cell.setBackground('#F0F8FF');
       };
     }
   }
@@ -64,5 +69,3 @@ function main(){
     return content
   }
   
-  // Highlight row when new entry is added
-
