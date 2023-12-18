@@ -1,7 +1,7 @@
 function main(){
   var professionDict = populateDict()
   for (const key in professionDict){
-    colNum = getColumnNumber(OUTPUT_DATA)
+    colNum = getColumnNumber(OUTPUT_DATA, key)
     // Add Obj
     writeContent(professionDict, key, "obj", 2, colNum)
     // Add Rew
