@@ -3,9 +3,9 @@ function main(){
   for (const key in professionDict){
     colNum = getColumnNumber(OUTPUT_DATA, key)
     // Add Obj
-    writeContent(professionDict, key, "obj", 2, colNum)
+    writeContent(professionDict, key, "obj", 2, colNum-1)
     // Add Rew
-    writeContent(professionDict, key, "rew", 3, colNum)
+    writeContent(professionDict, key, "rew", 3, colNum-1)
   }
 };
 
@@ -17,12 +17,9 @@ function populateDict(){
     const job = getCellData(INPUT_DATA, row, HEADERS["profession"]);
     const req = getCellData(INPUT_DATA, row, HEADERS["requirement"]);
     if (!professionDict[job] && job) {
-      console.log("ADDING", job)
-      console.log("BECAUSE", row)
       professionDict[job] = {};
     }
     if (!professionDict[job][req]) {
-      console.log('ADDING', job)
       professionDict[job][req] = [];
     }
     // Add Content
@@ -67,6 +64,7 @@ function writeContent(professionDict, key, type, rowNum, colNum){
       content: contentData
     }
     data = JSON.stringify(data)
+    data = data.replace(/\\\\\\"/g, '\\\"');
     // Add data to sheet
     var cell = OUTPUT_PAGE.getRange(rowNum, colNum+1)
     if (data && data !== cell.getValue()){ 
