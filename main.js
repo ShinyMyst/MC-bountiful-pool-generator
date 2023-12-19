@@ -16,10 +16,13 @@ function populateDict(){
     // Format Profession Dict
     const job = getCellData(INPUT_DATA, row, HEADERS["profession"]);
     const req = getCellData(INPUT_DATA, row, HEADERS["requirement"]);
-    if (!professionDict[job]) {
+    if (!professionDict[job] && job) {
+      console.log("ADDING", job)
+      console.log("BECAUSE", row)
       professionDict[job] = {};
     }
     if (!professionDict[job][req]) {
+      console.log('ADDING', job)
       professionDict[job][req] = [];
     }
     // Add Content
